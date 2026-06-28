@@ -400,7 +400,7 @@ function App() {
           type="text"
           value={latex}
           onChange={(e) => setLatex(e.target.value)}
-          placeholder="Enter LaTeX e.g. \frac{a+b}{c}"
+          placeholder="See Latex here…"
           onKeyDown={(e) => e.key === "Enter" && insertFormula()}
         />
 
