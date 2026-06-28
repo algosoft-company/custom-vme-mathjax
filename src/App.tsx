@@ -45,8 +45,7 @@ const MATH_OPTIONS: MathOption[] = [
   { id: "tan", labelEn: "tan", labelAr: "ظا", latex: "\\tan" },
   { id: "cot", labelEn: "cot", labelAr: "ظتا", latex: "\\cot" },
   { id: "sec", labelEn: "sec", labelAr: "قا", latex: "\\sec" },
-  { id: "sqrt", labelEn: "√ Square root", labelAr: "√ جذر تربيعي", latex: "\\sqrt{x}" },
-{ id: "limit", labelEn: "lim Limit", labelAr: "نها Limit", latex: "\\lim_{x \\to a}" },
+{ id: "sqrt", labelEn: "√ Square root", labelAr: "تربيعي جذر √", latex: "\\sqrt{x}" },{ id: "limit", labelEn: "lim Limit", labelAr: "نها Limit", latex: "\\lim_{x \\to a}" },
   { id: "power", labelEn: "xⁿ Power", labelAr: "xⁿ أس", latex: "x^{n}" },
   { id: "sum", labelEn: "Σ Sum", labelAr: "Σ مجموع", latex: "\\sum_{i=1}^{n} x_i" },
 ];
@@ -67,8 +66,8 @@ function MathPickerModal({
   onInsert,
   onClose,
 }: MathPickerModalProps) {
-  const [latex, setLatex] = useState(initialLatex);
-  const [isArabic, setIsArabic] = useState(initialIsArabic);
+ const [latex, setLatex] = useState(isEditing ? initialLatex : "");
+  const [isArabic, setIsArabic] = useState(isEditing ? initialIsArabic : false);
   const previewRef = useRef<HTMLDivElement>(null);
 
 
@@ -123,8 +122,8 @@ function MathPickerModal({
     placeholder: isArabic ? "اكتب صيغة LaTeX هنا…" : "Type LaTeX here…",
     insert: isEditing
       ? isArabic ? "تحديث الصيغة" : "Update Formula"
-      : isArabic ? "إدراج الصيغة" : "Add Equation",
-    clear: isArabic ? "مسح" : "Clear",
+   : isArabic ? "إضافة معادلة" : "Add Equation",
+       clear: isArabic ? "مسح" : "Clear",
     ar: "AR",
     en: "EN",
   };
@@ -140,11 +139,12 @@ function MathPickerModal({
           <span className="vme-title">{t.title}</span>
 
           {/* AR / EN switch lives right here in the modal header */}
-          <div className="mp-lang-switch" role="group" aria-label="Language">
+           <div className="mp-lang-switch" role="group" aria-label="Language">
             <button
               type="button"
               className={`mp-lang-btn ${!isArabic ? "mp-lang-btn--active" : ""}`}
               onClick={() => setIsArabic(false)}
+              disabled={isEditing}
             >
               {t.en}
             </button>
@@ -152,6 +152,7 @@ function MathPickerModal({
               type="button"
               className={`mp-lang-btn ${isArabic ? "mp-lang-btn--active" : ""}`}
               onClick={() => setIsArabic(true)}
+              disabled={isEditing}
             >
               {t.ar}
             </button>
@@ -409,11 +410,11 @@ function App() {
             checked={isArabic}
             onChange={(e) => setIsArabic(e.target.checked)}
           />
-          <span className="slider" />
-          <span className="label">{isArabic ? "Arabic" : "English"}</span>
+          {/* <span className="slider" /> */}
+          {/* <span className="label">{isArabic ? "Arabic" : "English"}</span> */}
         </label>
 
-        <button onClick={insertFormula}>Insert Formula</button>
+        {/* <button onClick={insertFormula}>Insert Formula</button> */}
 
         <button className="btn-visual" onClick={openPickerForNew}>
           🧮 Math Editor

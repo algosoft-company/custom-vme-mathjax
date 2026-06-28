@@ -540,4 +540,7 @@ button:hover {
 .ql-formula[dir='rtl'] .mjx-box {
   padding-top: 3px !important;
   font-size: 12px !important;
+}.mp-lang-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
 }
