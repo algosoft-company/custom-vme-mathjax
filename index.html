@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arabic Quill MathJax POC</title>
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Amiri"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/mathquill/0.10.1/mathquill.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathquill/0.10.1/mathquill.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Ajax.config.path["arabic"] = window.location.origin;
+
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js", "[arabic]/arabic.js"],
+        jax: ["input/TeX", "output/CommonHTML"],  // 👈 change to CommonHTML
+        tex2jax: {
+          inlineMath: [["\\(", "\\)"]],
+          displayMath: [["\\[", "\\]"]],
+          processEscapes: true,
+          skipTags: ["script", "noscript", "style", "textarea", "pre"]
+        },
+        CommonHTML: {
+          undefinedFamily: "Amiri",
+          mtextFontInherit: true,
+          matchFontHeight: false
+        },
+        Arabic: {
+          isArabicPage: true
+        },
+        messageStyle: "none"
+      });
+    </script>
+    <script
+      type="text/javascript"
+      async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML"
+    ></script>
+  </head>
+  <body>
+    <div id="root"></div>
+<script type="module" src="/src/main.tsx"></script>
+ </body>
+</html>
