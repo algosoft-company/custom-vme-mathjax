@@ -114,7 +114,7 @@ function MathPickerModal({
   const t = {
     title: isEditing
       ? isArabic ? "تعديل الصيغة" : "Edit Formula"
-      : isArabic ? "محرر الصيغ" : "Math Editor",
+      : isArabic ? "محرر الصيغ" : "Visual Math Editor",
     hint: isArabic
       ? "اختر رمزًا أو اكتب صيغة LaTeX، ثم اضغط إدراج."
       : "Pick a symbol or type LaTeX directly, then click Insert.",
@@ -393,7 +393,7 @@ function App() {
 
   return (
     <div className="app">
-      <h1>Arabic Quill + MathJax POC</h1>
+      <h1>Arabic Quill + Custom VME POC</h1>
 
       <div className="controls">
         <input
@@ -402,6 +402,7 @@ function App() {
           onChange={(e) => setLatex(e.target.value)}
           placeholder="See Latex here…"
           onKeyDown={(e) => e.key === "Enter" && insertFormula()}
+          disabled
         />
 
         <label className="toggle">
