@@ -37,18 +37,149 @@ interface MathOption {
   labelEn: string;
   labelAr: string;
   latex: string;
+  category: string;
 }
 
 const MATH_OPTIONS: MathOption[] = [
-  { id: "sin", labelEn: "sin", labelAr: "جا", latex: "\\sin" },
-  { id: "cos", labelEn: "cos", labelAr: "جتا", latex: "\\cos" },
-  { id: "tan", labelEn: "tan", labelAr: "ظا", latex: "\\tan" },
-  { id: "cot", labelEn: "cot", labelAr: "ظتا", latex: "\\cot" },
-  { id: "sec", labelEn: "sec", labelAr: "قا", latex: "\\sec" },
-{ id: "sqrt", labelEn: "√ Square root", labelAr: "تربيعي جذر √", latex: "\\sqrt{x}" },{ id: "limit", labelEn: "lim Limit", labelAr: "نها Limit", latex: "\\lim_{x \\to a}" },
-  { id: "power", labelEn: "xⁿ Power", labelAr: "xⁿ أس", latex: "x^{n}" },
-  { id: "sum", labelEn: "Σ Sum", labelAr: "Σ مجموع", latex: "\\sum_{i=1}^{n} x_i" },
+  // ── Trigonometry ──
+  { id: "sin",      category: "Trigonometry",   labelEn: "sin",       labelAr: "جا",      latex: "\\sin" },
+  { id: "cos",      category: "Trigonometry",   labelEn: "cos",       labelAr: "جتا",     latex: "\\cos" },
+  { id: "tan",      category: "Trigonometry",   labelEn: "tan",       labelAr: "ظا",      latex: "\\tan" },
+  { id: "cot",      category: "Trigonometry",   labelEn: "cot",       labelAr: "ظتا",     latex: "\\cot" },
+  { id: "sec",      category: "Trigonometry",   labelEn: "sec",       labelAr: "قا",      latex: "\\sec" },
+
+  // ── Fractions ──
+  { id: "frac",     category: "Fractions",      labelEn: "a/b",       labelAr: "أ/ب",     latex: "\\frac{a}{b}" },
+{
+  id: "mixed",
+  category: "Fractions",
+  labelEn: "□³⁄₈",
+  labelAr: "□³⁄₈",
+  latex: "a\\frac{3}{8}"
+},
+// {
+//   id: "rootfrac",
+//   category: "Fractions",
+//   labelEn: "√□/√□",
+//   labelAr: "√□/√□",
+//   latex: "\\frac{\\sqrt{6}}{\\sqrt{5}}"
+// },
+  // ── Powers & Roots ──
+{
+  id: "sqrt",
+  category: "Powers & Roots",
+  labelEn: "√□",
+  labelAr: "√",
+  latex: "\\sqrt{x}"
+},
+  { id: "power",    category: "Powers & Roots", labelEn: "xⁿ",        labelAr: "سⁿ",      latex: "x^{n}" },
+
+
+  // ── Symbols ──
+  { id: "times",    category: "Symbols",        labelEn: "×",         labelAr: "×",       latex: "\\times" },
+  { id: "div",      category: "Symbols",        labelEn: "÷",         labelAr: "÷",       latex: "\\div" },
+  { id: "leq",      category: "Symbols",        labelEn: "≤",         labelAr: "≤",       latex: "\\leq" },
+  { id: "approx",   category: "Symbols",        labelEn: "≈",         labelAr: "≈",       latex: "\\approx" },
+  { id: "abs",      category: "Symbols",        labelEn: "|x|",       labelAr: "|س|",     latex: "\\left|x\\right|" },
+  { id: "pi",       category: "Symbols",        labelEn: "π",         labelAr: "π",       latex: "\\pi" },
+  { id: "deg",      category: "Symbols",        labelEn: "°",         labelAr: "°",       latex: "^{\\circ}" },
+  { id: "angle",    category: "Symbols",        labelEn: "∠",         labelAr: "∠",       latex: "\\angle" },
+  { id: "triangle", category: "Symbols",        labelEn: "△",         labelAr: "△",       latex: "\\triangle" },
+  { id: "cong",     category: "Symbols",        labelEn: "≅",         labelAr: "≅",       latex: "\\cong" },
+  { id: "plus",     category: "Symbols", labelEn: "+", labelAr: "+", latex: "+" },
+{ id: "minus",    category: "Symbols", labelEn: "-", labelAr: "-", latex: "-" },
+{ id: "multiply", category: "Symbols", labelEn: "*", labelAr: "*", latex: "\\cdot" },
+{ id: "divide",   category: "Symbols", labelEn: "/", labelAr: "/", latex: "/" },
+
+  // ── Algebra──
+  { id: "limit",    category: "Algebra",        labelEn: "lim",       labelAr: "نها",     latex: "\\lim_{x \\to a}" },
+  { id: "sum",      category: "Algebra",        labelEn: "Σ",         labelAr: "Σ",       latex: "\\sum_{i=1}^{n} x_i" },
+// {
+//   id: "paren",
+//   category: "Brackets",
+//   labelEn: "( )",
+//   labelAr: "( )",
+//   latex: "\\left({}\\right)"
+// },
+// {
+//   id: "brace",
+//   category: "Brackets",
+//   labelEn: "{ }",
+//   labelAr: "{ }",
+//   latex: "\\left\\{{}\\right\\}"
+// },
+// {
+//   id: "bracket",
+//   category: "Brackets",
+//   labelEn: "[ ]",
+//   labelAr: "[ ]",
+//   latex: "\\left[{}\\right]"
+// },
+
+
+// Single Parentheses
+{
+  id: "lparen",
+  category: "Brackets",
+  labelEn: "(",
+  labelAr: "(",
+  latex: "("
+},
+{
+  id: "rparen",
+  category: "Brackets",
+  labelEn: ")",
+  labelAr: ")",
+  latex: ")"
+},
+
+// Single Curly Braces
+{
+  id: "lbrace",
+  category: "Brackets",
+  labelEn: "{",
+  labelAr: "{",
+  latex: "\\{"
+},
+{
+  id: "rbrace",
+  category: "Brackets",
+  labelEn: "}",
+  labelAr: "}",
+  latex: "\\}"
+},
+
+// Single Square Brackets
+{
+  id: "lbracket",
+  category: "Brackets",
+  labelEn: "[",
+  labelAr: "[",
+  latex: "["
+},
+{
+  id: "rbracket",
+  category: "Brackets",
+  labelEn: "]",
+  labelAr: "]",
+  latex: "]"
+},
+
+
+
+// ── Geometry ──
+{ id: "parallel",     category: "Geometry", labelEn: "∥",       labelAr: "∥",       latex: "\\parallel" },
+{ id: "perpendicular",category: "Geometry", labelEn: "⊥",       labelAr: "⊥",       latex: "\\perp" },
+
+// ── Variables ──
+{ id: "varA", category: "Variables", labelEn: "A", labelAr: "أ", latex: "A" },
+{ id: "varB", category: "Variables", labelEn: "B", labelAr: "ب", latex: "B" },
+{ id: "varC", category: "Variables", labelEn: "C", labelAr: "ج", latex: "C" },
+
+  // { id: "polypar",  category: "Algebra",        labelEn: "(ax²+…)",   labelAr: "(أس²+…)", latex: "(3x^{2}-5x+2)+(4x^{2}+x-3)" },
+  // { id: "polyadv",  category: "Algebra",        labelEn: "ax²y⁴−…",  labelAr: "أس²ص⁴−…", latex: "36x^{2}y^{4}-18x^{3}y^{2}+24xy^{3}" },
 ];
+
 
 // ─── Math Picker Modal ──────────────────────────────────────────────────────
 interface MathPickerModalProps {
@@ -66,10 +197,9 @@ function MathPickerModal({
   onInsert,
   onClose,
 }: MathPickerModalProps) {
- const [latex, setLatex] = useState(isEditing ? initialLatex : "");
+  const [latex, setLatex] = useState(isEditing ? initialLatex : "");
   const [isArabic, setIsArabic] = useState(isEditing ? initialIsArabic : false);
   const previewRef = useRef<HTMLDivElement>(null);
-
 
   useEffect(() => {
     const node = previewRef.current;
@@ -85,7 +215,7 @@ function MathPickerModal({
     const tex = isArabic ? `\\alwaysar{${latex}}` : latex;
 
     node.innerHTML = "";
-    node.className = `mp-preview ql-formula${isArabic ? "" : ""}`;
+    node.className = "mp-preview ql-formula";
     node.setAttribute("dir", isArabic ? "rtl" : "ltr");
 
     const script = document.createElement("script");
@@ -122,11 +252,11 @@ function MathPickerModal({
     placeholder: isArabic ? "اكتب صيغة LaTeX هنا…" : "Type LaTeX here…",
     insert: isEditing
       ? isArabic ? "تحديث الصيغة" : "Update Formula"
-   : isArabic ? "إضافة معادلة" : "Add Equation",
-       clear: isArabic ? "مسح" : "Clear",
-    ar: "AR",
-    en: "EN",
+      : isArabic ? "إضافة معادلة" : "Add Equation",
+    clear: isArabic ? "مسح" : "Clear",
   };
+
+  const categories = Array.from(new Set(MATH_OPTIONS.map((o) => o.category)));
 
   return (
     <div
@@ -138,15 +268,14 @@ function MathPickerModal({
         <div className="vme-header">
           <span className="vme-title">{t.title}</span>
 
-          {/* AR / EN switch lives right here in the modal header */}
-           <div className="mp-lang-switch" role="group" aria-label="Language">
+          <div className="mp-lang-switch" role="group" aria-label="Language">
             <button
               type="button"
               className={`mp-lang-btn ${!isArabic ? "mp-lang-btn--active" : ""}`}
               onClick={() => setIsArabic(false)}
               disabled={isEditing}
             >
-              {t.en}
+              EN
             </button>
             <button
               type="button"
@@ -154,7 +283,7 @@ function MathPickerModal({
               onClick={() => setIsArabic(true)}
               disabled={isEditing}
             >
-              {t.ar}
+              AR
             </button>
           </div>
 
@@ -164,19 +293,21 @@ function MathPickerModal({
         </div>
 
         <div className="mp-body">
-          {/* Symbol grid */}
-          <div className="mp-hint">{t.hint}</div>
-          <div className="mp-grid">
-            {MATH_OPTIONS.map((option) => (
-              <button
-                key={option.id}
-                className="mp-option"
-                onClick={() => handleOptionClick(option)}
-                type="button"
-              >
-                {isArabic ? option.labelAr : option.labelEn}
-              </button>
-            ))}
+          {/* Grouped symbol grid — no category headings, no gaps */}
+          <div className="mp-grid" role="group" aria-label="Math Symbols">
+            {categories.map((cat) =>
+              MATH_OPTIONS.filter((o) => o.category === cat).map((option) => (
+                <button
+                  key={option.id}
+                  className="mp-option"
+                  onClick={() => handleOptionClick(option)}
+                  type="button"
+                  title={isArabic ? option.labelAr : option.labelEn}
+                >
+                  {isArabic ? option.labelAr : option.labelEn}
+                </button>
+              ))
+            )}
           </div>
 
           {/* LaTeX input */}
@@ -212,18 +343,10 @@ function MathPickerModal({
         {/* Footer */}
         <div className="vme-footer">
           <div className="vme-footer-row">
-            <button
-              className="mp-clear-btn"
-              onClick={() => setLatex("")}
-              type="button"
-            >
+            <button className="mp-clear-btn" onClick={() => setLatex("")} type="button">
               {t.clear}
             </button>
-            <button
-              className="vme-insert-btn"
-              onClick={handleInsert}
-              type="button"
-            >
+            <button className="vme-insert-btn" onClick={handleInsert} type="button">
               {t.insert}
             </button>
           </div>
@@ -241,8 +364,6 @@ function App() {
   const [isArabic, setIsArabic] = useState(false);
   const [showPicker, setShowPicker] = useState(false);
 
-  // When editing an existing formula, this holds its index in the Quill
-  // document so Insert can replace it in place instead of inserting new.
   const editingIndexRef = useRef<number | null>(null);
   const [isEditing, setIsEditing] = useState(false);
 
@@ -266,7 +387,6 @@ function App() {
     });
   }, []);
 
-  // ── Click-to-edit: listen for clicks on existing .ql-formula embeds ──────
   useEffect(() => {
     const root = editorRef.current;
     const quill = quillRef.current;
@@ -277,16 +397,12 @@ function App() {
       const formulaNode = target.closest(".ql-formula") as HTMLElement | null;
       if (!formulaNode || !quill) return;
 
-      // Read the stored latex straight off the DOM node (data-latex is set
-      // by MathFormulaBlot.create), same value MathFormulaBlot.value() reads.
       const clickedLatex = formulaNode.getAttribute("data-latex") || "";
       const clickedDir = formulaNode.getAttribute("dir") || "ltr";
 
-      // Find this blot's index in the Quill document so we know what to
-      // replace on update.
       const blot = Quill.find(formulaNode);
       if (!blot) return;
-      const index = quill.getIndex(blot);
+      const index = quill.getIndex(blot as any);
 
       editingIndexRef.current = index;
       setIsEditing(true);
@@ -310,8 +426,6 @@ function App() {
       let index: number;
 
       if (editIndex !== null) {
-        // Editing: remove the old embed (length 1) and insert the new one
-        // at the same position, so it replaces in place.
         quill.deleteText(editIndex, 1, "user");
         index = editIndex;
         editingIndexRef.current = null;
@@ -400,7 +514,7 @@ function App() {
           type="text"
           value={latex}
           onChange={(e) => setLatex(e.target.value)}
-          placeholder="See Latex here…"
+          placeholder="See LaTeX here…"
           onKeyDown={(e) => e.key === "Enter" && insertFormula()}
           disabled
         />
@@ -411,11 +525,7 @@ function App() {
             checked={isArabic}
             onChange={(e) => setIsArabic(e.target.checked)}
           />
-          {/* <span className="slider" /> */}
-          {/* <span className="label">{isArabic ? "Arabic" : "English"}</span> */}
         </label>
-
-        {/* <button onClick={insertFormula}>Insert Formula</button> */}
 
         <button className="btn-visual" onClick={openPickerForNew}>
           🧮 Math Editor

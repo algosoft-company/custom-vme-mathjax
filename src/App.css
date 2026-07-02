@@ -192,13 +192,64 @@ button:hover {
   top: 0.75px !important;
 }
 .ql-formula[dir="rtl"] .mjx-surd * {
-  padding-top:7px !important;
+  padding-top: 7px !important;
 }
 .ql-formula[dir="rtl"] .mjx-denominator {
-  bottom: -1em  !important
+  bottom: -1em !important;
 }
 
-/* ─── Visual Editor entry button (page-level, unchanged theme) ──────────── */
+.ql-formula .mjx-chtml {
+  direction: inherit !important;
+}
+
+.ql-formula[dir='rtl'] .mjx-mo .mjx-char {
+  display: inline-block !important;
+}
+
+.ql-formula[dir='rtl'] .mjx-mo {
+  /* display: inline-block !important;
+  -moz-transform: scaleX(-1) !important;
+  -webkit-transform: scaleX(-1) !important;
+  transform: scaleX(-1) !important; */
+    transform: none !important;
+
+}
+
+.ql-formula[dir='rtl'] .mjx-surd {
+  transform: scaleX(-1) !important;
+}
+
+.ql-formula[dir='rtl'] .mfliph > .mjx-mo {
+  -moz-transform: scaleX(1) !important;
+  -webkit-transform: scaleX(1) !important;
+  transform: scaleX(1) !important;
+}
+
+.ql-formula[dir='rtl'] .mjx-surd {
+  display: inline-block !important;
+  -moz-transform: scaleX(-1) !important;
+  -webkit-transform: scaleX(-1) !important;
+  -o-transform: scaleX(-1) !important;
+  transform: scaleX(-1) !important;
+}
+
+.ql-formula[dir='rtl'] .mjx-line {
+  width: 100% !important;
+  border-bottom: 1.5px solid !important;
+}
+
+.ql-formula[dir='rtl'] .mfliph {
+  padding-top: 1px !important;
+}
+
+.ql-formula[dir='rtl'] .mjx-box {
+  padding-top: 3px !important;
+  font-size: 12px !important;
+}
+
+
+
+/* ─── Visual Editor entry button (page-level) ───────────────────────────── */
 
 .btn-visual {
   background: #4f46e5;
@@ -217,20 +268,17 @@ button:hover {
 
 /* ════════════════════════════════════════════════════════════════════════
    MATH PICKER MODAL — graphite & paper theme
-   Warm off-white paper, soft graphite ink, a tight gray scale for
-   structure. No color accents — depth comes from shadow and weight,
-   not from saturation.
    ════════════════════════════════════════════════════════════════════════ */
 
 :root {
-  --mp-ink: #1c1c1c;       /* primary text / borders — soft black, not pure */
-  --mp-paper: #fdfdfc;     /* warm off-white, not stark white */
-  --mp-surface: #ffffff;   /* raised surfaces (inputs, preview) */
-  --mp-gray-2: #3a3a3a;    /* hover-state ink */
-  --mp-gray-3: #767672;    /* muted text, hints */
-  --mp-gray-4: #9c9c97;    /* placeholder, disabled */
-  --mp-gray-5: #d8d7d3;    /* hairlines, dividers */
-  --mp-gray-6: #ececea;    /* subtle fills */
+  --mp-ink: #1c1c1c;
+  --mp-paper: #fdfdfc;
+  --mp-surface: #ffffff;
+  --mp-gray-2: #3a3a3a;
+  --mp-gray-3: #767672;
+  --mp-gray-4: #9c9c97;
+  --mp-gray-5: #d8d7d3;
+  --mp-gray-6: #ececea;
   --mp-radius: 10px;
 }
 
@@ -247,7 +295,6 @@ button:hover {
   padding: 16px;
 }
 
-/* ── Modal shell ── */
 .vme-modal {
   background: var(--mp-paper);
   color: var(--mp-ink);
@@ -259,12 +306,12 @@ button:hover {
     0 0 0 1px rgba(20, 20, 18, 0.03);
   display: flex;
   flex-direction: column;
-  width: min(680px, 100%);
-  height: min(660px, 90vh);
+  width: min(600px, 100%);
+  height: min(70vh,80%);
   overflow: hidden;
 }
 
-/* ── Header ── */
+
 .vme-header {
   display: flex;
   align-items: center;
@@ -275,6 +322,7 @@ button:hover {
   flex-shrink: 0;
   gap: 12px;
 }
+
 .vme-title {
   font-weight: 700;
   font-size: 16px;
@@ -319,12 +367,30 @@ button:hover {
   line-height: 1.5;
 }
 
-/* ── Option grid ── */
+/* ── Category grouping ── */
+.mp-category {
+  margin-bottom: 22px;
+}
+
+.mp-category-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--mp-gray-3);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--mp-gray-5);
+}
+
+/* ── Option grid — flush table style ── */
 .mp-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 8px;
-  margin-bottom: 26px;
+  grid-template-columns: repeat(7,1fr);
+  gap:12px;
+  margin-bottom: 4px;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 @media (max-width: 560px) {
@@ -334,32 +400,40 @@ button:hover {
 }
 
 .mp-option {
-  padding: 13px 8px;
-  border: 1px solid var(--mp-gray-5);
+  padding: 8px;
+  border: none;
+  border-right: 1px solid var(--mp-gray-5);
+  border-bottom: 1px solid var(--mp-gray-5);
   border-radius: 10px;
-  background: var(--mp-surface);
-  color: var(--mp-ink);
-  font-size: 14px;
-  font-weight: 600;
+  background: #F1F5F9;
+  color:black;
+  font-size: 12x;
+  font-weight: 500px;
   cursor: pointer;
   text-align: center;
   white-space: nowrap;
-  transition: background 0.12s ease, color 0.12s ease,
-    border-color 0.12s ease, transform 0.08s ease, box-shadow 0.12s ease;
+  transition: background 0.12s ease, color 0.12s ease;
+}
+
+/* Remove right border on last column */
+.mp-option:nth-child(5n) {
+  border-right: none;
+}
+
+/* Remove bottom border on last row */
+.mp-option:nth-last-child(-n+5):nth-child(5n+1),
+.mp-option:nth-last-child(-n+5):nth-child(5n+1) ~ .mp-option {
+  border-bottom: none;
 }
 
 .mp-option:hover {
   background: var(--mp-ink);
   color: var(--mp-paper);
-  border-color: var(--mp-ink);
-  box-shadow: 0 4px 10px -4px rgba(20, 20, 18, 0.4);
 }
 
 .mp-option:active {
   background: var(--mp-gray-2);
-  border-color: var(--mp-gray-2);
-  transform: scale(0.96);
-  box-shadow: none;
+  color: var(--mp-paper);
 }
 
 /* ── Sections (LaTeX input / Preview) ── */
@@ -378,6 +452,7 @@ button:hover {
   text-transform: uppercase;
   letter-spacing: 0.08em;
   margin-bottom: 8px;
+  margin-top:10%;
 }
 
 .vme-latex-input {
@@ -391,7 +466,7 @@ button:hover {
   font-family: "SF Mono", "Courier New", monospace;
   outline: none;
   transition: border-color 0.15s, box-shadow 0.15s;
-  min-width: 300px;
+  min-width: 500px;
 }
 .vme-latex-input:focus {
   border-color: var(--mp-ink);
@@ -499,48 +574,7 @@ button:hover {
   box-shadow: 0 1px 4px rgba(20, 20, 18, 0.25);
 }
 
-.ql-formula .mjx-chtml {
-  direction: inherit !important;
-}
-
-.ql-formula[dir='rtl'] .mjx-mo .mjx-char {
-  display: inline-block !important;
-}
-
-.ql-formula[dir='rtl'] .mjx-mo {
-  display: inline-block !important;
-  -moz-transform: scaleX(-1) !important;
-  -webkit-transform: scaleX(-1) !important;
-  transform: scaleX(-1) !important;
-}
-
-.ql-formula[dir='rtl'] .mfliph > .mjx-mo {
-  -moz-transform: scaleX(1) !important;
-  -webkit-transform: scaleX(1) !important;
-  transform: scaleX(1) !important;
-}
-
-.ql-formula[dir='rtl'] .mjx-surd {
-  display: inline-block !important;
-  -moz-transform: scaleX(-1) !important;
-  -webkit-transform: scaleX(-1) !important;
-  -o-transform: scaleX(-1) !important;
-  transform: scaleX(-1) !important;
-}
-
-.ql-formula[dir='rtl'] .mjx-line {
-  width: 100% !important;
-  border-bottom: 1.5px solid !important;
-}
-
-.ql-formula[dir='rtl'] .mfliph {
-  padding-top:1px !important;
-}
-
-.ql-formula[dir='rtl'] .mjx-box {
-  padding-top: 3px !important;
-  font-size: 12px !important;
-}.mp-lang-btn:disabled {
+.mp-lang-btn:disabled {
   cursor: not-allowed;
   opacity: 0.45;
 }
