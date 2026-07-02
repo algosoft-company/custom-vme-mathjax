@@ -307,7 +307,7 @@ button:hover {
   display: flex;
   flex-direction: column;
   width: min(600px, 100%);
-  height: min(70vh,80%);
+  height: min(75vh,80%);
   overflow: hidden;
 }
 
