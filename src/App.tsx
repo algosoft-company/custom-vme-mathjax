@@ -165,6 +165,14 @@ const MATH_OPTIONS: MathOption[] = [
   latex: "]"
 },
 
+{
+  id: "fracpower",
+  category: "Powers & Roots",
+  labelEn: "(□/□)ⁿ",
+  labelAr: "(□/□)ⁿ",
+  latex: "\\left(\\frac{a}{b}\\right)^{n}"
+},
+
 
 
 // ── Geometry ──
